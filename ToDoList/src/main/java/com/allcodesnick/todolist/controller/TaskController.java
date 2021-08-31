@@ -2,6 +2,7 @@ package com.allcodesnick.todolist.controller;
 
 import com.allcodesnick.todolist.model.Task;
 import com.allcodesnick.todolist.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @RequestMapping("toDoList")
 public class TaskController {
 
+    @Autowired
     private TaskService taskService;
 
     public TaskController(TaskService taskService) {

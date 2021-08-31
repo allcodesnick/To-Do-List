@@ -3,6 +3,7 @@ package com.allcodesnick.todolist.service.impl;
 import com.allcodesnick.todolist.model.Task;
 import com.allcodesnick.todolist.repository.TaskRepository;
 import com.allcodesnick.todolist.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
 
+    @Autowired
     private TaskRepository taskRepository;
 
     public TaskServiceImpl(TaskRepository taskRepository) {

@@ -2,44 +2,35 @@ package com.allcodesnick.todolist.controller;
 
 import com.allcodesnick.todolist.model.Task;
 import com.allcodesnick.todolist.service.TaskService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("toDoList")
+@Controller
 public class TaskController {
 
-    @Autowired
     private TaskService taskService;
 
     public TaskController(TaskService taskService) {
+        super();
         this.taskService = taskService;
     }
 
-    @PostMapping("/createTask")
-    public Task saveTask(@RequestBody Task task){
-        return taskService.saveTask(task);
-    }
+    // handler method to handle list task and return mode and view
+    @GetMapping("/index")
+     public String listStudents(Model model){
+        model.addAttribute("tasks", taskService.listTask());
+        return "tasks";
+     }
 
-    @GetMapping("/list_all")
-    public List<Task> taskList(){
-        return taskService.listTask();
-    }
+     @GetMapping("/index/new")
+     public String createTaskForm(Model model){
+        Task task = new Task();
+        model.addAttribute("task", task);
+        return "create-task";
+     }
 
-    @GetMapping("/task/{id}")
-    public Task getTaskById(@PathVariable Long id){
-        return taskService.getTaskById(id);
-    }
-
-    @DeleteMapping("/deleteTask/{id}")
-    public void deleteTask(@PathVariable Long id){
-        taskService.deleteTask(id);
-    }
-
-    @PutMapping("/updateTask/{id}")
-    public Task updateTask(@RequestBody Task task,@PathVariable Long id){
-        return taskService.updateTask(task, id);
-    }
 }
+
+
+

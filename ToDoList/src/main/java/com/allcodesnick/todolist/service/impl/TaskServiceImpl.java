@@ -11,10 +11,10 @@ import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    @Autowired
     private TaskRepository taskRepository;
 
     public TaskServiceImpl(TaskRepository taskRepository) {
+        super();
         this.taskRepository = taskRepository;
     }
 

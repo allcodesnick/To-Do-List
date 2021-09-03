@@ -11,12 +11,8 @@ import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
 
+    @Autowired
     private TaskRepository taskRepository;
-
-    public TaskServiceImpl(TaskRepository taskRepository) {
-        super();
-        this.taskRepository = taskRepository;
-    }
 
     @Override
     public Task saveTask(Task task) {
@@ -29,18 +25,18 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task getTaskById(Long id) {
+    public Task getTaskById(long id) {
         return taskRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteTask(Long id) {
+    public void deleteTask(long id) {
         Task task = taskRepository.findById(id).orElse(null);
         taskRepository.delete(task);
     }
 
     @Override
-    public Task updateTask(Task task, Long id) {
+    public Task updateTask(Task task, long id) {
         Task existingTask = taskRepository.findById(id).orElse(null);
         existingTask.setTaskName(task.getTaskName());
         existingTask.setDescription(task.getDescription());

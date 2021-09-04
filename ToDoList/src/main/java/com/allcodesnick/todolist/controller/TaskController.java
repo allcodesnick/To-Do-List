@@ -47,6 +47,14 @@ public class TaskController {
         model.addAttribute("task", task);
         return "update-task";
     }
+
+    @GetMapping("/deleteTask/{id}")
+    public String deleteTask(@PathVariable (value = "id") long id){
+        //call delete task method
+        taskService.deleteTask(id);
+        return "redirect:/";
+
+    }
 }
 
 

@@ -24,7 +24,9 @@
         <td th:text="${task.description}"></td>
         <td th:text="${task.dueDate}"></td>
         <td th:text="${task.completed}"></td>
-        <td><a th:href="@{/showFormForUpdate/{id}(id=${task.id})}">Update</a></td>
+        <td><a th:href="@{/showFormForUpdate/{id}(id=${task.id})}">Update</a>
+            <a th:href="@{/deleteTask/{id}(id=${task.id})}">Delete</a>
+        </td>
     </tr>
     </tbody>
     </table>

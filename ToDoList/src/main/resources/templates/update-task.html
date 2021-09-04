@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+<div>
+    <h1>To Do List</h1>
+    <hr>
+    <h2>Update Task</h2>
+    <form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <input type="text" th:field = "*{taskName}">
+        <input type="text" th:field = "*{description}">
+        <input type="date" th:field = "*{dueDate}">
+        <input type="text" th:field = "*{completed}">
+        <button type="submit">Update Task</button>
+    </form>
+    <hr>
+    <a th:href="@{/}">Back to To Do List</a>
+</div>
+</body>
+</html>

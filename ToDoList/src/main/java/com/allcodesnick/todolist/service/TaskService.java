@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TaskService {
 
-    Task saveTask(Task task);
+    void saveTask(Task task);
 
     List<Task> listTask();
 

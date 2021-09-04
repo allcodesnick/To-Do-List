@@ -6,6 +6,7 @@
 </head>
 <body>
 <div align="center">
+    <a th:href="@{/showNewTaskForm}">Add Task</a>
     <table>
     <thead>
     <tr>
@@ -14,6 +15,7 @@
     <th> Task Description </th>
     <th> Due Date </th>
     <th> Completed </th>
+    <th> Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +24,7 @@
         <td th:text="${task.description}"></td>
         <td th:text="${task.dueDate}"></td>
         <td th:text="${task.completed}"></td>
+        <td><a th:href="@{/showFormForUpdate/{id}(id=${task.id})}">Update</a></td>
     </tr>
     </tbody>
     </table>

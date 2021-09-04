@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @Data
@@ -19,8 +20,7 @@ public class Task {
 
     private String description;
 
-    @Temporal(TemporalType.DATE)
-    private Calendar dueDate;
+    private java.sql.Date dueDate;
 
     @Type(type = "yes_no")
     private boolean completed;

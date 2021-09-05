@@ -3,22 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-<div>
+<div class="container" align="center">
+
     <h1>To Do List</h1>
     <hr>
     <h2>Update Task</h2>
+
     <form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
         <input type="hidden" th:field="*{id}" />
-        <input type="text" th:field = "*{taskName}">
-        <input type="text" th:field = "*{description}">
-        <input type="date" th:field = "*{dueDate}">
-        <input type="text" th:field = "*{completed}">
-        <button type="submit">Update Task</button>
+
+        <div class="mb-3">
+            <input type="text" th:field = "*{taskName}" placeholder="Task Name">
+        </div>
+
+        <div class="mb-3">
+            <input type="text" th:field = "*{description}" placeholder="Task Description">
+        </div>
+
+        <div class="mb-3">
+            <input type="date" th:field = "*{dueDate}" placeholder="Due Date">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-check-label">
+                Task Completed
+            </label>
+            <input type="checkbox" th:field = "*{completed}" placeholder="Task Completed">
+        </div>
+
+        <div class="mb-3">
+            <button type="submit">Update Task</button>
+        </div>
     </form>
     <hr>
-    <a th:href="@{/}">Back to To Do List</a>
+    <a th:href="@{/}">To Do List</a>
 </div>
 </body>
 </html>

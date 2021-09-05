@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-<div align="center">
+<div class="container">
+    
     <a th:href="@{/showNewTaskForm}">Add Task</a>
-    <table>
-    <thead>
+    <table class="table table-striped">
+
+    <thead class="table-dark">
+
     <tr>
     <h1>To Do List</h1>
     <th> Task Name </th>
@@ -17,8 +22,10 @@
     <th> Completed </th>
     <th> Actions</th>
     </tr>
+
     </thead>
     <tbody>
+
     <tr th:each="task : ${TaskList}">
         <td th:text="${task.taskName}"></td>
         <td th:text="${task.description}"></td>
@@ -28,9 +35,9 @@
             <a th:href="@{/deleteTask/{id}(id=${task.id})}">Delete</a>
         </td>
     </tr>
+
     </tbody>
     </table>
 </div>
-
 </body>
 </html>

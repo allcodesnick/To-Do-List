@@ -5,8 +5,24 @@
     <title>To Do List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        a {
+            text-decoration: none;
+            color: aliceblue;
+        }
+        a:hover {
+            COLOR: black;
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="btn btn-secondary">
+            <a th:href="@{/}">To Do List</a>
+        </button>
+    </div>
+</nav>
 <div class="container" align="center">
     <h1>To Do List</h1>
     <hr>
@@ -14,7 +30,7 @@
     <form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
 
         <div class="mb-3">
-            <input type="text" th:field = "*{taskName}" placeholder="Task Name">
+            <input type="text" th:field = "*{taskName}" placeholder="Task Name" required>
         </div>
 
         <div class="mb-3">
@@ -22,7 +38,7 @@
         </div>
 
         <div class="mb-3">
-            <input type="date" th:field = "*{dueDate}" placeholder="Due Date">
+            <input type="date" th:field = "*{dueDate}" placeholder="Due Date" required>
         </div>
 
         <div class="mb-3">
@@ -33,12 +49,9 @@
         </div>
 
         <div class="mb-3">
-            <button type="submit">Save Task</button>
+            <button type="submit" class="btn btn-primary">Save Task</button>
         </div>
     </form>
-
-    <hr>
-    <a th:href="@{/}">To Do List</a>
 </div>
 </body>
 </html>
